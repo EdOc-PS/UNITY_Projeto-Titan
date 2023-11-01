@@ -1,0 +1,34 @@
+{
+    "name": "PlayerControls",
+    "maps": [
+        {
+            "name": "Combate",
+            "id": "3d0fe0e3-b83c-434c-b806-e8215cc305ac",
+            "actions": [
+                {
+                    "name": "Ataque",
+                    "type": "Button",
+                    "id": "9b988acc-a09a-4ec8-9a91-108c12394f11",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "93e51c6c-62ad-4355-9ad0-c2eaede5d078",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Ataque",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
