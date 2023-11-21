@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,13 +23,13 @@ public class SystemVida : MonoBehaviour
     public  Transform          desativarEspada;
     private Animator           playerAnimacao; 
     private Controller_Player  controleP;
-    private Collider2D         collider;
+    private Collider2D         coll2D;
    
     void Start(){
         playerSprite = GetComponent<SpriteRenderer>();
         playerAnimacao = GetComponent<Animator>();
         controleP = GetComponent<Controller_Player>();
-        collider = GetComponent<Collider2D>();
+        coll2D = GetComponent<Collider2D>();
     }
 
     // Update is called once per frame
@@ -44,6 +43,8 @@ public class SystemVida : MonoBehaviour
         }
         if(vidamax > 5){
             ativarColuna2.gameObject.SetActive(true);
+        }else{
+            ativarColuna2.gameObject.SetActive(false);
         }
         for(int i = 0; i < vidas.Length; i++){
             if(i < vida){
@@ -62,7 +63,7 @@ public class SystemVida : MonoBehaviour
     void DeathPlayer(){
         if(vida <= 0){
             controleP.enabled = false;
-            collider.enabled = false;
+            coll2D.enabled = false;
             desativarEspada.gameObject.SetActive(false);
             playerAnimacao.SetTrigger("Death");        
         }
