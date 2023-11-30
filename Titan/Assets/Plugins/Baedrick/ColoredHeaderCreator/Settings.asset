@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Settings
   m_EditorClassIdentifier: 
   headerSettings:
-    headerText: GUI
+    headerText: GUI-MENU
     headerColor: {r: 0.27058825, g: 0.4947168, b: 0.81960785, a: 1}
     textAlignmentOptions: 0
     fontStyleOptions: 0

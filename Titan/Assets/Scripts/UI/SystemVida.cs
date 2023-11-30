@@ -9,8 +9,10 @@ public class SystemVida : MonoBehaviour
     public Sprite           coracaoCheio;
     public Sprite           coracaoEmpty;
     public Transform        ativarColuna2;
-    public  int             vida;
-    public  int             vidamax;
+  
+    public int             vida; //vida do player
+  
+    public int            vidamax; // qtde de corações na UI
    
 
     [Header("Health Quantidade")]
@@ -77,5 +79,8 @@ public class SystemVida : MonoBehaviour
                 yield return new WaitForSeconds(0.16f);
             }
         }
+    }
+    public void GanhaVida(){
+        vida++;
     }
 }
