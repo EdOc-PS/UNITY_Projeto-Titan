@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: TX-Water_28
+  m_Name: TX-Ground_19
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 549467801, guid: 7262c0c7809d4d348af5a678ca0b197f, type: 3}
+  m_Sprite: {fileID: 1431615569, guid: 50757863edf2ee2408be8b9082fbf856, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
