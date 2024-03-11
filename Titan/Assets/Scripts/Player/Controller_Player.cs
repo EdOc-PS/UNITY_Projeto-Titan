@@ -5,7 +5,6 @@ using UnityEngine;
 public class Controller_Player : MonoBehaviour
 {
     
-    // Start is called before the first frame update
     private Rigidbody2D     PlayerRigidibody2D;
     private Vector2         PlayerDirecao;
     private Animator        PlayerAnimacao;   
@@ -16,14 +15,14 @@ public class Controller_Player : MonoBehaviour
     public  float           RecargaDash;
             float           PlayerVelocidadeAtual;
             bool            inDash; 
-    //Dash-desativar ataque        
-   private  bool             isClickMouse = true;
 
+    //Dash-desativar ataque        
+    private bool            isClickMouse = true;
 
     //Ataque-Movimentos
-    private Vector3        targetPosition;
-    private float          DirecaoMovida;
-    private bool           isAtaque = false;
+    private Vector3         targetPosition;
+    private float           DirecaoMovida;
+    private bool            isAtaque = false;
    
     //Controle das particulas
     public ParticleSystem trail;
@@ -38,29 +37,31 @@ public class Controller_Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         // Movimentação do Player
         if(PlayerVelocidadeAtual == PlayerVelocidade){
             PlayerDirecao = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")); 
             PlayerDirecao = PlayerDirecao.normalized;     
         }
+
         //Dash para o player 
         Dash(); 
         Dust();
+
         // Animações das direções de movimentação (Conferir no Animator) 
         // Direção X - Direita e Esquerda
-            if(PlayerDirecao.x > 0){
-                DirecaoDireita();      
-            }
-            else if(PlayerDirecao.x < 0){
-                DirecaoEsquerda();           
-            }
-            else{
-                PlayerAnimacao.SetInteger("Movimento", 0); 
-            }
+
+        if(PlayerDirecao.x > 0){
+            DirecaoDireita();      
+        }
+        else if(PlayerDirecao.x < 0){
+             DirecaoEsquerda();           
+        }
+        else{
+            PlayerAnimacao.SetInteger("Movimento", 0); 
+        }
         //Direção Y - Cima e Baixo
-         if(PlayerDirecao.y > 0){
-            //Verificar a direção - Cima e Direita
+        if(PlayerDirecao.y > 0){
+        //Verificar a direção - Cima e Direita
             if(PlayerDirecao.x > 0){
                 DirecaoDireita();  
             }
@@ -72,7 +73,6 @@ public class Controller_Player : MonoBehaviour
             else{
                 PlayerAnimacao.SetInteger("Movimento", 2);
                 PlayerAnimacao.SetInteger("Parado", 2); 
-                
             }
         }
 
@@ -88,14 +88,13 @@ public class Controller_Player : MonoBehaviour
             //Baixo
             else{
                 PlayerAnimacao.SetInteger("Movimento", -2);
-                PlayerAnimacao.SetInteger("Parado", -2);
-                 
+                PlayerAnimacao.SetInteger("Parado", -2);  
             }
         }
 
         //Ataque
-         OnAtaque();
-         if(isAtaque){
+        OnAtaque();
+        if(isAtaque){
             if(targetPosition.x > transform.position.x){
                 PlayerAnimacao.SetInteger("Ataque", 1);
                 PlayerAnimacao.SetInteger("Movimento", 3); 
@@ -106,11 +105,9 @@ public class Controller_Player : MonoBehaviour
                 PlayerAnimacao.SetInteger("Parado", -1); 
             }
          }
-
     }
 
-        void FixedUpdate()
-        {
+        void FixedUpdate(){
             PlayerRigidibody2D.MovePosition(PlayerRigidibody2D.position + PlayerDirecao 
             *  PlayerVelocidadeAtual * Time.fixedDeltaTime);           
         }
